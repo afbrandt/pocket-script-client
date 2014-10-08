@@ -18,15 +18,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="dSd-zK-f4V"/>
+                    <navigationItem key="navigationItem" id="qZB-Bq-wor"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="30w-wq-uFS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-17" y="1128"/>
+            <point key="canvasLocation" x="795" y="1128"/>
         </scene>
         <!--New Rx-->
         <scene sceneID="R4I-l9-Eg2">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2iD-VY-EnB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="New Rx" id="alH-2H-MjO" customClass="PSNewRxViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gqk-0A-X2F"/>
@@ -37,11 +38,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="qoU-qB-sdQ"/>
+                    <navigationItem key="navigationItem" id="80s-Md-95z"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2iD-VY-EnB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-17" y="222"/>
+            <point key="canvasLocation" x="795" y="222"/>
         </scene>
         <!--Rx History-->
         <scene sceneID="GOb-i8-OQP">
@@ -100,12 +100,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ASQ-Qc-QqC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1558" y="653"/>
+            <point key="canvasLocation" x="2316" y="649"/>
         </scene>
-        <!--View Controller-->
+        <!--Rx Order Detail-->
         <scene sceneID="SbS-6y-PzF">
             <objects>
-                <viewController id="vcJ-e8-cWk" sceneMemberID="viewController">
+                <viewController id="vcJ-e8-cWk" userLabel="Rx Order Detail" customClass="PSRxOrderDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="poD-Lx-JhQ"/>
                         <viewControllerLayoutGuide type="bottom" id="9QD-xI-L4N"/>
@@ -118,7 +118,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nea-RV-sjm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2245" y="653"/>
+            <point key="canvasLocation" x="3085" y="649"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Lhu-AE-uFI">
@@ -131,20 +131,20 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="alH-2H-MjO" kind="relationship" relationship="viewControllers" id="w1w-a0-5LM"/>
-                        <segue destination="PSK-x1-bgs" kind="relationship" relationship="viewControllers" id="IEw-4g-2S0"/>
+                        <segue destination="aUj-4B-6NR" kind="relationship" relationship="viewControllers" id="w1w-a0-5LM"/>
                         <segue destination="6Fj-Y7-dzd" kind="relationship" relationship="viewControllers" id="XIO-3Z-p7b"/>
+                        <segue destination="6Om-yS-x5u" kind="relationship" relationship="viewControllers" id="IEw-4g-2S0"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ixx-Ai-yJu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-837" y="649"/>
         </scene>
-        <!--Item-->
+        <!--Rx History Navigation-->
         <scene sceneID="hxE-82-0Kp">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Fj-Y7-dzd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="k0p-tK-kWh"/>
+                <navigationController title="Rx History Navigation" automaticallyAdjustsScrollViewInsets="NO" id="6Fj-Y7-dzd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="History" id="k0p-tK-kWh"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tqi-ai-qWs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -157,7 +157,45 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VMf-gM-qdV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="746" y="653"/>
+            <point key="canvasLocation" x="1504" y="649"/>
+        </scene>
+        <!--New Rx Navigation-->
+        <scene sceneID="Mim-UI-8WJ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aUj-4B-6NR" userLabel="New Rx Navigation" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="New" id="qoU-qB-sdQ"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VGt-ve-hKN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="alH-2H-MjO" kind="relationship" relationship="rootViewController" id="T8d-tY-3Z2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cka-uq-K3A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-17" y="222"/>
+        </scene>
+        <!--Account Navigation-->
+        <scene sceneID="vtg-XV-6Gs">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Om-yS-x5u" userLabel="Account Navigation" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Account" id="dSd-zK-f4V"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pFO-xA-dNh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="PSK-x1-bgs" kind="relationship" relationship="rootViewController" id="oBS-01-ayX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yzj-Wy-2lY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-17" y="1128"/>
         </scene>
     </scenes>
 </document>
