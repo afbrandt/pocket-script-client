@@ -6,10 +6,16 @@
 //  Copyright (c) 2014 Andrew Brandt. All rights reserved.
 //
 
+#import <MobileCoreServices/MobileCoreServices.h>
 #import "PSNewRxViewController.h"
 #import "AppDelegate.h"
+#import "RxOrder.h"
 
 @interface PSNewRxViewController ()
+
+@property (nonatomic, assign) BOOL isCapturingRx;
+@property (nonatomic, assign) BOOL isCapturingInsurance;
+@property (nonatomic, assign) BOOL isCapturingFront;
 
 @end
 
@@ -19,22 +25,89 @@
     [super viewDidLoad];
     
     self.context = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).managedObjectContext;
-    // Do any additional setup after loading the view.
+    self.order = [NSEntityDescription insertNewObjectForEntityForName:@"RxOrder" inManagedObjectContext:self.context];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma TODO - validate all images have been provided
+
+- (IBAction)submitRxOrder:(id)sender {
+    NSError *error;
+    [self.order setSubmitTimestamp:[NSDate date]];
+    [self.context insertObject:self.order];
+    [self.context save:&error];
+    
+    //web request initiated here
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - Image capture methods
+
+- (IBAction)captureInsuranceCard:(id)sender {
+    self.isCapturingFront = YES;
+    self.isCapturingInsurance = YES;
+    self.isCapturingRx = NO;
+    [self useCamera:sender];
 }
-*/
+
+- (IBAction)captureRxImage:(id)sender {
+    self.isCapturingFront = YES;
+    self.isCapturingInsurance = NO;
+    self.isCapturingRx = YES;
+    [self useCamera:sender];
+}
+
+- (void) useCamera:(id)sender
+{
+    if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera])
+    {
+           UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+           imagePicker.delegate = self;
+           imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+           imagePicker.mediaTypes = @[(NSString *) kUTTypeImage];
+           imagePicker.allowsEditing = NO;
+           [self presentViewController:imagePicker animated:YES completion:nil];
+     }
+}
+
+#pragma mark UIImagePickerControllerDelegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+   NSString *mediaType = info[UIImagePickerControllerMediaType];
+
+   [self dismissViewControllerAnimated:YES completion:nil];
+
+    if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
+        UIImage *image = info[UIImagePickerControllerOriginalImage];
+        
+        if (self.isCapturingRx && !self.isCapturingFront) {
+            [self.order setRxImageBack: UIImageJPEGRepresentation(image, 0.05f)];
+        }
+        else if (self.isCapturingRx && self.isCapturingFront) {
+            [self.order setRxImageFront: UIImageJPEGRepresentation(image, 0.05f)];
+        }
+        if (self.isCapturingInsurance && !self.isCapturingFront) {
+            [self.order setInsuranceImageBack: UIImageJPEGRepresentation(image, 0.05f)];
+        }
+        else if (self.isCapturingInsurance && self.isCapturingFront) {
+            [self.order setInsuranceImageFront: UIImageJPEGRepresentation(image, 0.05f)];
+        }
+    }
+}
+
+- (void)image:(UIImage *)image finishedSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
+   if (error) {
+        UIAlertView *alert = [[UIAlertView alloc]
+           initWithTitle: @"Save failed"
+           message: @"Failed to save image"
+           delegate: nil
+           cancelButtonTitle:@"OK"
+           otherButtonTitles:nil];
+        [alert show];
+   }
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+   [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

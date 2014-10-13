@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class RxOrder;
 
-@interface PSNewRxViewController : UIViewController
+@interface PSNewRxViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *context;
+@property (nonatomic, strong) RxOrder *order;
 
 @end
