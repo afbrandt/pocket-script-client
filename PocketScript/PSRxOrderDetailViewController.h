@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class RxOrder;
 
 @interface PSRxOrderDetailViewController : UIViewController
+
+@property (nonatomic, strong) RxOrder *order;
 
 @end

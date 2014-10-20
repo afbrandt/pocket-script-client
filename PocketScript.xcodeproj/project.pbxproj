@@ -17,8 +17,10 @@
 		49273F2319E5AFD5003E8B24 /* PSNewRxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49273F2219E5AFD5003E8B24 /* PSNewRxViewController.m */; };
 		49273F2919E5B054003E8B24 /* PSAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49273F2819E5B054003E8B24 /* PSAccountViewController.m */; };
 		49273F2C19E5B068003E8B24 /* PSRxHistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49273F2B19E5B068003E8B24 /* PSRxHistoryTableViewController.m */; };
+		4927F45419EF165800C2E4B3 /* PSRxOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4927F45319EF165800C2E4B3 /* PSRxOrderTableViewCell.xib */; };
 		49E092C419E5BAF200D79B0C /* RxOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E092C319E5BAF200D79B0C /* RxOrder.m */; };
 		49E092C719E5BFCA00D79B0C /* PSRxOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E092C619E5BFCA00D79B0C /* PSRxOrderDetailViewController.m */; };
+		49E092CA19EC888B00D79B0C /* PSRxOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E092C919EC888B00D79B0C /* PSRxOrderTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,10 +52,13 @@
 		49273F2819E5B054003E8B24 /* PSAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSAccountViewController.m; sourceTree = "<group>"; };
 		49273F2A19E5B068003E8B24 /* PSRxHistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSRxHistoryTableViewController.h; sourceTree = "<group>"; };
 		49273F2B19E5B068003E8B24 /* PSRxHistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSRxHistoryTableViewController.m; sourceTree = "<group>"; };
+		4927F45319EF165800C2E4B3 /* PSRxOrderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PSRxOrderTableViewCell.xib; sourceTree = "<group>"; };
 		49E092C219E5BAF200D79B0C /* RxOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RxOrder.h; sourceTree = "<group>"; };
 		49E092C319E5BAF200D79B0C /* RxOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RxOrder.m; sourceTree = "<group>"; };
 		49E092C519E5BFCA00D79B0C /* PSRxOrderDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSRxOrderDetailViewController.h; sourceTree = "<group>"; };
 		49E092C619E5BFCA00D79B0C /* PSRxOrderDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSRxOrderDetailViewController.m; sourceTree = "<group>"; };
+		49E092C819EC888B00D79B0C /* PSRxOrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSRxOrderTableViewCell.h; sourceTree = "<group>"; };
+		49E092C919EC888B00D79B0C /* PSRxOrderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSRxOrderTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +108,9 @@
 				49273F2219E5AFD5003E8B24 /* PSNewRxViewController.m */,
 				49E092C519E5BFCA00D79B0C /* PSRxOrderDetailViewController.h */,
 				49E092C619E5BFCA00D79B0C /* PSRxOrderDetailViewController.m */,
+				49E092C819EC888B00D79B0C /* PSRxOrderTableViewCell.h */,
+				49E092C919EC888B00D79B0C /* PSRxOrderTableViewCell.m */,
+				4927F45319EF165800C2E4B3 /* PSRxOrderTableViewCell.xib */,
 				49273F2719E5B054003E8B24 /* PSAccountViewController.h */,
 				49273F2819E5B054003E8B24 /* PSAccountViewController.m */,
 				49E092C219E5BAF200D79B0C /* RxOrder.h */,
@@ -225,6 +233,7 @@
 				49273F0719E5AC0F003E8B24 /* Main.storyboard in Resources */,
 				49273F0C19E5AC0F003E8B24 /* LaunchScreen.xib in Resources */,
 				49273F0919E5AC0F003E8B24 /* Images.xcassets in Resources */,
+				4927F45419EF165800C2E4B3 /* PSRxOrderTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +254,7 @@
 				49273F2319E5AFD5003E8B24 /* PSNewRxViewController.m in Sources */,
 				49273EFE19E5AC0E003E8B24 /* AppDelegate.m in Sources */,
 				49273F2C19E5B068003E8B24 /* PSRxHistoryTableViewController.m in Sources */,
+				49E092CA19EC888B00D79B0C /* PSRxOrderTableViewCell.m in Sources */,
 				49273F2919E5B054003E8B24 /* PSAccountViewController.m in Sources */,
 				49273EFB19E5AC0E003E8B24 /* main.m in Sources */,
 				49E092C719E5BFCA00D79B0C /* PSRxOrderDetailViewController.m in Sources */,

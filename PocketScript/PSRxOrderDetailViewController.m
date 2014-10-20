@@ -7,8 +7,11 @@
 //
 
 #import "PSRxOrderDetailViewController.h"
+#import "RxOrder.h"
 
 @interface PSRxOrderDetailViewController ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *rxImageFront;
 
 @end
 
@@ -16,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.rxImageFront.image = [UIImage imageWithData:[self.order rxImageFront]];
 }
 
 @end

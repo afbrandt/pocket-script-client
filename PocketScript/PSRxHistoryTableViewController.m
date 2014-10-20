@@ -7,6 +7,8 @@
 //
 
 #import "PSRxHistoryTableViewController.h"
+#import "PSRxOrderDetailViewController.h"
+#import "PSRxOrderTableViewCell.h"
 #import "AppDelegate.h"
 #import "RxOrder.h"
 
@@ -20,8 +22,15 @@
     [super viewDidLoad];
     
     self.context = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).managedObjectContext;
+    UINib *nib = [UINib nibWithNibName:@"PSRxOrderTableViewCell" bundle:[NSBundle mainBundle]];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"RxOrderCell"];
     
     self.orders = [self fetchAllOrders];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.tableView reloadData];
 }
 
 
@@ -32,26 +41,35 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RxOrderCell" forIndexPath:indexPath];
+    PSRxOrderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RxOrderCell" forIndexPath:indexPath];
+    
+    if (!cell) {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"PSRxOrderTableViewCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+    }
+    
     
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"MM-dd-YYYY, hh:mm aa"];
     NSString *prettyVersion = [dateFormat stringFromDate:[self.orders[indexPath.row] submitTimestamp]];
     
-    cell.textLabel.text = prettyVersion;
+    cell.timestamp.text = prettyVersion;
+    
+    cell.status.text = @"Pending";
     
     return cell;
 }
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    PSRxOrderDetailViewController *destination = [segue destinationViewController];
+    NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
+    destination.order = self.orders[selectedIndexPath.row];
 }
-*/
+
+
 - (NSArray *)fetchAllOrders {
     NSArray *result = nil;
     NSError *error = nil;
