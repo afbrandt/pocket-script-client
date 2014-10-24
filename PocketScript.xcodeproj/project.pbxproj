@@ -17,6 +17,7 @@
 		49273F2319E5AFD5003E8B24 /* PSNewRxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49273F2219E5AFD5003E8B24 /* PSNewRxViewController.m */; };
 		49273F2919E5B054003E8B24 /* PSAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49273F2819E5B054003E8B24 /* PSAccountViewController.m */; };
 		49273F2C19E5B068003E8B24 /* PSRxHistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49273F2B19E5B068003E8B24 /* PSRxHistoryTableViewController.m */; };
+		4993DBED19FA4CC600ED33CA /* PSWebRequestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4993DBEC19FA4CC600ED33CA /* PSWebRequestHelper.m */; };
 		49E092C419E5BAF200D79B0C /* RxOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E092C319E5BAF200D79B0C /* RxOrder.m */; };
 		49E092C719E5BFCA00D79B0C /* PSRxOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E092C619E5BFCA00D79B0C /* PSRxOrderDetailViewController.m */; };
 /* End PBXBuildFile section */
@@ -50,6 +51,8 @@
 		49273F2819E5B054003E8B24 /* PSAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSAccountViewController.m; sourceTree = "<group>"; };
 		49273F2A19E5B068003E8B24 /* PSRxHistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSRxHistoryTableViewController.h; sourceTree = "<group>"; };
 		49273F2B19E5B068003E8B24 /* PSRxHistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSRxHistoryTableViewController.m; sourceTree = "<group>"; };
+		4993DBEB19FA4CC600ED33CA /* PSWebRequestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSWebRequestHelper.h; sourceTree = "<group>"; };
+		4993DBEC19FA4CC600ED33CA /* PSWebRequestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSWebRequestHelper.m; sourceTree = "<group>"; };
 		49E092C219E5BAF200D79B0C /* RxOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RxOrder.h; sourceTree = "<group>"; };
 		49E092C319E5BAF200D79B0C /* RxOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RxOrder.m; sourceTree = "<group>"; };
 		49E092C519E5BFCA00D79B0C /* PSRxOrderDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSRxOrderDetailViewController.h; sourceTree = "<group>"; };
@@ -105,6 +108,8 @@
 				49E092C619E5BFCA00D79B0C /* PSRxOrderDetailViewController.m */,
 				49273F2719E5B054003E8B24 /* PSAccountViewController.h */,
 				49273F2819E5B054003E8B24 /* PSAccountViewController.m */,
+				4993DBEB19FA4CC600ED33CA /* PSWebRequestHelper.h */,
+				4993DBEC19FA4CC600ED33CA /* PSWebRequestHelper.m */,
 				49E092C219E5BAF200D79B0C /* RxOrder.h */,
 				49E092C319E5BAF200D79B0C /* RxOrder.m */,
 				49273F0519E5AC0F003E8B24 /* Main.storyboard */,
@@ -250,6 +255,7 @@
 				49E092C719E5BFCA00D79B0C /* PSRxOrderDetailViewController.m in Sources */,
 				49273F0119E5AC0E003E8B24 /* PocketScript.xcdatamodeld in Sources */,
 				49E092C419E5BAF200D79B0C /* RxOrder.m in Sources */,
+				4993DBED19FA4CC600ED33CA /* PSWebRequestHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
