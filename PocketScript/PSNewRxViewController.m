@@ -8,6 +8,7 @@
 
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "PSNewRxViewController.h"
+#import "PSWebRequestHelper.h"
 #import "AppDelegate.h"
 #import "RxOrder.h"
 
@@ -37,6 +38,7 @@
     [self.context save:&error];
     
     //web request initiated here
+    [[PSWebRequestHelper sharedInstance] postNewRxOrder:self.order];
 }
 
 

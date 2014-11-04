@@ -12,12 +12,25 @@
 @implementation PSWebRequestHelper
 
 static PSWebRequestHelper *singleton;
-static NSString* const URL = @"";
+static NSString* const URL_STRING = @"http://10.0.19.250:3000/object/";
+
+- (instancetype)init {
+    self = [super init];
+    
+    if (self) {
+        self.manager = [AFHTTPRequestOperationManager new];
+        self.manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    }
+    
+    return self;
+}
 
 - (void)postNewRxOrder: (RxOrder *)order {
-    NSURL *url = [NSURL URLWithString:URL];
+    NSURL *url = [NSURL URLWithString:URL_STRING];
     NSData *payload;
     //needs to build payload from order object
+    
+    payload = [order rxImageFront];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
     
@@ -36,17 +49,25 @@ static NSString* const URL = @"";
             NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
             
             dispatch_async(dispatch_get_main_queue(), ^(void) {
-                //update UI
+                //notify completion
             });
         }
-        
     }];
-    [dataTask resume];
+    //[dataTask resume];
+    NSDictionary *parameters = [NSDictionary dictionary];
+    
+    [self.manager POST:URL_STRING parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFileData:[order rxImageFront] name:@"file" fileName:@"rxFront.png" mimeType:@"image/png"];
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Success: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
 }
 
 #pragma mark - TODO provide correct dispatch method for singleton initialization
 
-+ (PSWebRequestHelper *)sharedInstance {
++ (instancetype)sharedInstance {
     if (!singleton) {
         singleton = [PSWebRequestHelper new];
     }

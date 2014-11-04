@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AFNetworking.h"
 @class RxOrder;
 
 @interface PSWebRequestHelper : NSObject<NSURLSessionDelegate>
 
+@property (nonatomic, strong) AFHTTPRequestOperationManager *manager;
+
 - (void)postNewRxOrder: (RxOrder *)order;
-+ (PSWebRequestHelper *)sharedInstance;
++ (instancetype)sharedInstance;
 
 @end
