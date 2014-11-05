@@ -12,7 +12,7 @@
 @implementation PSWebRequestHelper
 
 static PSWebRequestHelper *singleton;
-static NSString* const URL_STRING = @"http://10.0.19.250:3000/object/";
+static NSString* const URL_STRING = @"http://10.2.14.247:3000/object/";
 
 - (instancetype)init {
     self = [super init];
@@ -26,6 +26,8 @@ static NSString* const URL_STRING = @"http://10.0.19.250:3000/object/";
 }
 
 - (void)postNewRxOrder: (RxOrder *)order {
+
+    /*
     NSURL *url = [NSURL URLWithString:URL_STRING];
     NSData *payload;
     //needs to build payload from order object
@@ -53,11 +55,15 @@ static NSString* const URL_STRING = @"http://10.0.19.250:3000/object/";
             });
         }
     }];
-    //[dataTask resume];
+    [dataTask resume];
+    */
     NSDictionary *parameters = [NSDictionary dictionary];
     
     [self.manager POST:URL_STRING parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        [formData appendPartWithFileData:[order rxImageFront] name:@"file" fileName:@"rxFront.png" mimeType:@"image/png"];
+        [formData appendPartWithFileData:[order rxImageFront] name:@"rxFront" fileName:@"rxFront.jpg" mimeType:@"image/jpeg"];
+        [formData appendPartWithFileData:[order rxImageBack] name:@"rxBack" fileName:@"rxBack.jpg" mimeType:@"image/jpeg"];
+        [formData appendPartWithFileData:[order insuranceImageFront] name:@"insuranceFront" fileName:@"insuranceFront.jpg" mimeType:@"image/jpeg"];
+        [formData appendPartWithFileData:[order insuranceImageBack] name:@"insuranceBack" fileName:@"insuranceBack.jpg" mimeType:@"image/jpeg"];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Success: %@", responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

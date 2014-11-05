@@ -93,6 +93,12 @@
         else if (self.isCapturingInsurance && self.isCapturingFront) {
             [self.order setInsuranceImageFront: UIImageJPEGRepresentation(image, 0.05f)];
         }
+        
+        //quick and dirty follow up to take back
+        if (self.isCapturingFront) {
+            self.isCapturingFront = NO;
+            [self useCamera:nil];
+        }
     }
 }
 
