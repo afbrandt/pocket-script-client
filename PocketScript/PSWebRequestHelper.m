@@ -57,7 +57,9 @@ static NSString* const URL_STRING = @"http://10.2.14.247:3000/object/";
     }];
     [dataTask resume];
     */
-    NSDictionary *parameters = [NSDictionary dictionary];
+    
+    //TODO proper checking for non-null images
+    NSDictionary *parameters = @{@"deviceToken":@"tokenValue"};
     
     [self.manager POST:URL_STRING parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         [formData appendPartWithFileData:[order rxImageFront] name:@"rxFront" fileName:@"rxFront.jpg" mimeType:@"image/jpeg"];
