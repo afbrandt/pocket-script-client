@@ -39,6 +39,9 @@
     
     //web request initiated here
     [[PSWebRequestHelper sharedInstance] postNewRxOrder:self.order];
+    
+    //reset order after completion
+    self.order = [NSEntityDescription insertNewObjectForEntityForName:@"RxOrder" inManagedObjectContext:self.context];
 }
 
 
